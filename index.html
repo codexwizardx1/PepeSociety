@@ -11,7 +11,7 @@
       height: 100%;
       overflow-x: hidden;
       font-family: Arial, sans-serif;
-      background: linear-gradient(180deg, #3d5be0 0%, #2d3ca8 100%);
+      background: linear-gradient(180deg, #3d5be0 0%, #2d3ca8 100%); /* ✅ blue gradient */
     }
 
     /* Intro wrapper */
@@ -96,8 +96,8 @@
 
     /* Extra section for scroll */
     #extra-space {
-      height: 150vh; /* gives you room to scroll */
-      background: #f5f5f5; 
+      height: 150vh; /* gives room to scroll */
+      background: linear-gradient(180deg, #2d3ca8 0%, #1c255f 100%); /* darker blue continuation */
     }
   </style>
 </head>
@@ -111,14 +111,14 @@
 
   <!-- Logos -->
   <img id="corner-logo" src="PSLOGONOBACK.png" alt="Pepe Society Logo">
-  <img id="main-logo" src="PEPESOCIETY2.png" alt="Pepe Society"> <!-- swapped here -->
+  <img id="main-logo" src="pepesociety2.png" alt="Pepe Society"> <!-- ✅ fixed filename -->
   
   <!-- Pepe crowd -->
   <img id="crowd" src="pepecrowd.png" alt="Pepe Crowd">
 
   <!-- Extra scrollable section -->
   <div id="extra-space">
-    <h1 style="text-align:center; padding-top:50px;">This is the section below the hero 👇</h1>
+    <h1 style="text-align:center; padding-top:50px; color:white;">This is the section below the hero 👇</h1>
   </div>
 
   <script>
