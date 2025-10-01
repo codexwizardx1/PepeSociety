@@ -30,7 +30,6 @@
       transition: height 0.3s ease-in-out;
     }
 
-    /* Static overlay */
     #intro::after {
       content: "";
       position: absolute;
@@ -55,14 +54,6 @@
       object-fit: cover;
       pointer-events: none;
       filter: saturate(1.4) contrast(1.05);
-    }
-
-    /* HERO SECTION (PepeSociety + crowd) */
-    #hero {
-      position: relative;
-      height: 100vh; /* full screen hero */
-      background: transparent;
-      overflow: hidden;
     }
 
     /* Top-left logo */
@@ -103,15 +94,10 @@
       opacity: 1;
     }
 
-    /* SECOND SECTION (content below hero) */
-    #next-section {
-      height: 100vh; /* full screen block */
-      background: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 3rem;
-      color: #333;
+    /* Extra section for scroll */
+    #extra-space {
+      height: 150vh; /* gives you room to scroll */
+      background: #f5f5f5; 
     }
   </style>
 </head>
@@ -123,17 +109,17 @@
     </video>
   </div>
 
-  <!-- HERO SECTION -->
-  <section id="hero">
-    <img id="corner-logo" src="PSLOGONOBACK.png" alt="Pepe Society Logo">
-    <img id="main-logo" src="PEPESOCIETY.png" alt="Pepe Society">
-    <img id="crowd" src="pepecrowd.png" alt="Pepe Crowd">
-  </section>
+  <!-- Logos -->
+  <img id="corner-logo" src="PSLOGONOBACK.png" alt="Pepe Society Logo">
+  <img id="main-logo" src="PEPESOCIETY2.png" alt="Pepe Society"> <!-- swapped here -->
+  
+  <!-- Pepe crowd -->
+  <img id="crowd" src="pepecrowd.png" alt="Pepe Crowd">
 
-  <!-- NEW SECTION BELOW HERO -->
-  <section id="next-section">
-    <p>Welcome to the next section 👋</p>
-  </section>
+  <!-- Extra scrollable section -->
+  <div id="extra-space">
+    <h1 style="text-align:center; padding-top:50px;">This is the section below the hero 👇</h1>
+  </div>
 
   <script>
     const intro = document.getElementById('intro');
@@ -143,7 +129,7 @@
     video.addEventListener('ended', () => {
       intro.style.height = "0";
 
-      // wait 1 second, then slide up crowd
+      // wait 1 second, then slide up crowd faster
       setTimeout(() => {
         crowd.classList.add('active');
       }, 1000);
