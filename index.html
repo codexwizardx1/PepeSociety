@@ -82,10 +82,10 @@
       height: auto;
     }
 
-    /* Pepe crowd (same as your code, but hidden first) */
+    /* Pepe crowd */
     #crowd {
       position: absolute;
-      bottom: -400px; /* your original setting */
+      bottom: -800px; /* start hidden way lower */
       left: 50%;
       transform: translateX(-50%);
       width: 100vw;  
@@ -94,9 +94,9 @@
       transition: bottom 1s ease-out, opacity 1s ease-out;
     }
 
-    /* When active, slide crowd up */
+    /* Active: slide into your set position (-400px) */
     #crowd.active {
-      bottom: 0;
+      bottom: -400px; /* your original spot */
       opacity: 1;
     }
   </style>
@@ -129,15 +129,13 @@
     video.addEventListener('ended', () => {
       intro.style.height = "0";
 
-      // wait 1 second then slide up crowd
+      // wait 1 second, then slide up crowd to -400px
       setTimeout(() => {
         crowd.classList.add('active');
 
-        // optional: after 5s, "lock" it into place so it scrolls normally
+        // optional: after 5s, let it scroll away naturally
         setTimeout(() => {
-          crowd.style.transition = "none"; 
-          crowd.style.position = "absolute"; 
-          crowd.style.bottom = "0";
+          crowd.style.transition = "none";
         }, 5000);
 
       }, 1000);
