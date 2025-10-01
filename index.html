@@ -10,23 +10,22 @@
       padding: 0;
       height: 100%;
       overflow: hidden;
-      background: black;
+      background: black; /* fallback background */
     }
-  video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  transform: translate(-50%, -50%) scale(0.9); /* smaller */
-  object-fit: cover;
-}
-
-
+    video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      transform: translate(-50%, -50%) scale(0.97); /* adjust scale here */
+      object-fit: cover;
+      pointer-events: none; /* disable clicks so no pause */
+    }
   </style>
 </head>
 <body>
-  <video autoplay muted playsinline>
+  <video autoplay muted playsinline loop>
     <source src="intro.mp4" type="video/mp4">
   </video>
 </body>
