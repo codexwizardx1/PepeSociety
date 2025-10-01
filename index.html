@@ -9,7 +9,7 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      overflow: hidden;
+      overflow-x: hidden;
       font-family: Arial, sans-serif;
     }
 
@@ -59,7 +59,7 @@
     /* Main content */
     #content {
       background: #3852cd;
-      height: 100vh;
+      min-height: 200vh; /* ✅ make taller so you can scroll */
       position: relative;
     }
 
@@ -99,6 +99,11 @@
       bottom: -400px; /* your original spot */
       opacity: 1;
     }
+
+    /* filler space */
+    #filler {
+      height: 100vh; /* more scroll room */
+    }
   </style>
 </head>
 <body>
@@ -119,6 +124,9 @@
 
     <!-- Pepe crowd -->
     <img id="crowd" src="pepecrowd.png" alt="Pepe Crowd">
+
+    <!-- Extra scrollable space -->
+    <div id="filler"></div>
   </div>
 
   <script>
