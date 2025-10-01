@@ -11,7 +11,8 @@
       height: 100%;
       overflow-x: hidden;
       font-family: Arial, sans-serif;
-      background: #3852cd;
+      background: linear-gradient(180deg, #3d5be0 0%, #2d3ca8 100%); /* gradient */
+      background-attachment: fixed;
     }
 
     /* Intro wrapper */
@@ -74,12 +75,13 @@
       transform: translate(-50%, -50%);
       width: 90vw;  
       height: auto;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4)); /* emboss/shadow feel */
     }
 
     /* Pepe crowd */
     #crowd {
-      position: fixed;    /* stays in place on scroll */
-      bottom: -800px;     /* start hidden */
+      position: fixed;    
+      bottom: -800px;     
       left: 50%;
       transform: translateX(-50%);
       width: 100vw;  
@@ -89,15 +91,14 @@
       z-index: 10;
     }
 
-    /* Active: slide into -400px and stay there */
     #crowd.active {
       bottom: -400px;
       opacity: 1;
     }
 
-    /* filler space just so you can scroll */
+    /* filler space at bottom for scrolling */
     #filler {
-      height: 200vh;
+      height: 200vh; /* adds vertical scroll */
     }
   </style>
 </head>
