@@ -61,21 +61,18 @@
       background: #3852cd; /* ✅ Pepe blue background */
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       height: 100vh;
-      color: white;
-      font-size: 3rem;
-      font-weight: bold;
-      text-align: center;
       position: relative;
     }
 
-    /* Logo in top left */
-    #logo {
+    /* PepeSociety image in middle top */
+    #main-logo {
       position: absolute;
-      top: 20px;
-      left: 20px;
-      width: 120px;   /* adjust size as needed */
+      top: 120px; /* push it down */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 300px;  /* adjust size as needed */
       height: auto;
     }
   </style>
@@ -90,8 +87,7 @@
 
   <!-- Main Content -->
   <div id="content">
-    <img id="logo" src="PSLOGONOBACK.png" alt="Pepe Society Logo">
-    🐸 Welcome to Pepe Society 🐸
+    <img id="main-logo" src="PEPESOCIETY.PNG" alt="Pepe Society">
   </div>
 
   <script>
