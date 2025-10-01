@@ -72,7 +72,7 @@
       height: auto;
     }
 
-    /* PepeSociety main title centered full screen */
+    /* Huge centered PepeSociety logo */
     #main-logo {
       position: absolute;
       top: 50%;
@@ -81,6 +81,17 @@
       width: 90vw;   /* 🔥 almost fills screen */
       height: auto;
       max-width: 1600px; /* safety cap for huge monitors */
+    }
+
+    /* Bottom-center Pepe crowd */
+    #crowd {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 1920px; /* optional cap */
+      height: auto;
     }
   </style>
 </head>
@@ -99,6 +110,9 @@
 
     <!-- Huge centered PepeSociety logo -->
     <img id="main-logo" src="PEPESOCIETY.png" alt="Pepe Society">
+
+    <!-- Bottom-centered Pepe crowd -->
+    <img id="crowd" src="pepecrowd.png" alt="Pepe Crowd">
   </div>
 
   <script>
