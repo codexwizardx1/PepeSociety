@@ -44,17 +44,18 @@
       mix-blend-mode: overlay;
     }
 
-    video {
-      position: absolute;
-      top: 46.5%; /* ✅ tiniest nudge up */
-      left: 51%;
-      min-width: 100%;
-      min-height: 100%;
-      transform: translate(-50%, -50%) scale(0.8);
-      object-fit: cover;
-      pointer-events: none;
-      filter: saturate(1.4) contrast(1.05);
-    }
+   video {
+  position: absolute;
+  top: 46.5%;   /* already nudged up slightly */
+  left: 50.5%;  /* ✅ nudged left slightly */
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%) scale(0.8);
+  object-fit: cover;
+  pointer-events: none;
+  filter: saturate(1.4) contrast(1.05);
+}
+
 
     /* Top-left logo */
     #corner-logo {
