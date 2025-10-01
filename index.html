@@ -40,10 +40,12 @@
   height: 100%;
   pointer-events: none;
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAKElEQVQYV2NkIAIwEqmOgYGBgYEhS0tL+WcQA0jIoo9CJgAQDA1EBM2YwPYAAAAASUVORK5CYII=");
-  opacity: 0.15; /* noise strength */
-  mix-blend-mode: overlay; /* blends with video */
-  animation: noiseAnim 0.3s infinite;
+  background-size: 150px 150px; /* make texture more visible */
+  opacity: 0.35; /* much stronger */
+  mix-blend-mode: overlay;
+  animation: noiseAnim 0.2s infinite;
 }
+
 
 @keyframes noiseAnim {
   0% { transform: translate(0,0); }
