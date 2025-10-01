@@ -9,7 +9,7 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      overflow: hidden;
+      overflow-x: hidden;
       font-family: Arial, sans-serif;
     }
 
@@ -59,7 +59,7 @@
     /* Main content */
     #content {
       background: #3852cd;
-      height: 100vh;
+      height: 200vh; /* make taller so scrolling works */
       position: relative;
     }
 
@@ -82,14 +82,23 @@
       height: auto;
     }
 
-    /* Pepe crowd pushed further down */
+    /* Pepe crowd image */
     #crowd {
-      position: absolute;
-      bottom: -440px; /* pushed way more down */
+      position: fixed;  /* stays in place while scrolling */
+      bottom: -500px;   /* start hidden off-screen */
       left: 50%;
       transform: translateX(-50%);
-      width: 100vw;  
+      width: 100vw;
       height: auto;
+      z-index: 50;
+      opacity: 0;
+      transition: bottom 1s ease-out, opacity 1s ease-out;
+    }
+
+    /* Active state: slide up */
+    #crowd.active {
+      bottom: 0;    /* slide up into view */
+      opacity: 1;
     }
   </style>
 </head>
@@ -109,16 +118,29 @@
     <!-- Big PepeSociety logo -->
     <img id="main-logo" src="PEPESOCIETY.png" alt="Pepe Society">
 
-    <!-- Huge bottom Pepe crowd -->
+    <!-- Pepe crowd -->
     <img id="crowd" src="pepecrowd.png" alt="Pepe Crowd">
   </div>
 
   <script>
     const intro = document.getElementById('intro');
     const video = intro.querySelector('video');
+    const crowd = document.getElementById('crowd');
 
     video.addEventListener('ended', () => {
       intro.style.height = "0";
+
+      // wait 1s, then slide up crowd
+      setTimeout(() => {
+        crowd.classList.add('active');
+
+        // after 5s, release it so it scrolls away
+        setTimeout(() => {
+          crowd.style.position = "absolute";
+          crowd.style.bottom = "0";
+        }, 5000);
+
+      }, 1000);
     });
   </script>
 </body>
