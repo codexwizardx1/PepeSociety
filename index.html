@@ -56,11 +56,9 @@
       filter: saturate(1.4) contrast(1.05);
     }
 
-    /* Main content */
-    #content {
+    /* Background */
+    body {
       background: #3852cd;
-      min-height: 200vh; /* ✅ make taller so you can scroll */
-      position: relative;
     }
 
     /* Top-left logo */
@@ -94,15 +92,14 @@
       transition: bottom 1s ease-out, opacity 1s ease-out;
     }
 
-    /* Active: slide into your set position (-400px) */
     #crowd.active {
       bottom: -400px; /* your original spot */
       opacity: 1;
     }
 
-    /* filler space */
+    /* filler space for scroll testing */
     #filler {
-      height: 100vh; /* more scroll room */
+      height: 200vh; /* lots of empty scroll space */
     }
   </style>
 </head>
@@ -114,20 +111,13 @@
     </video>
   </div>
 
-  <!-- Main Content -->
-  <div id="content">
-    <!-- Top-left logo -->
-    <img id="corner-logo" src="PSLOGONOBACK.png" alt="Pepe Society Logo">
+  <!-- Logos + crowd (keep positioned the same as before) -->
+  <img id="corner-logo" src="PSLOGONOBACK.png" alt="Pepe Society Logo">
+  <img id="main-logo" src="PEPESOCIETY.png" alt="Pepe Society">
+  <img id="crowd" src="pepecrowd.png" alt="Pepe Crowd">
 
-    <!-- Big PepeSociety logo -->
-    <img id="main-logo" src="PEPESOCIETY.png" alt="Pepe Society">
-
-    <!-- Pepe crowd -->
-    <img id="crowd" src="pepecrowd.png" alt="Pepe Crowd">
-
-    <!-- Extra scrollable space -->
-    <div id="filler"></div>
-  </div>
+  <!-- Extra scroll room -->
+  <div id="filler"></div>
 
   <script>
     const intro = document.getElementById('intro');
@@ -140,12 +130,6 @@
       // wait 1 second, then slide up crowd to -400px
       setTimeout(() => {
         crowd.classList.add('active');
-
-        // optional: after 5s, let it scroll away naturally
-        setTimeout(() => {
-          crowd.style.transition = "none";
-        }, 5000);
-
       }, 1000);
     });
   </script>
