@@ -76,24 +76,6 @@
       filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
     }
 
-    /* Pepe crowd */
-    #crowd {
-      position: fixed;    
-      bottom: -800px;     
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80vw;  /* was 100vw — now smaller */
-      height: auto;
-      opacity: 0;
-      transition: bottom 0.4s ease-out, opacity 0.4s ease-out;
-      z-index: 10;
-    }
-
-    #crowd.active {
-      bottom: -400px;
-      opacity: 1;
-    }
-
     /* Extra section for scroll */
     #extra-space {
       height: 150vh; /* gives room to scroll */
@@ -105,16 +87,13 @@
   <!-- Intro Video -->
   <div id="intro">
     <video autoplay muted playsinline>
-      <source src="psintro.mp4" type="video/mp4"> <!-- ✅ swapped here -->
+      <source src="psintro.mp4" type="video/mp4">
     </video>
   </div>
 
   <!-- Logos -->
   <img id="corner-logo" src="PSLOGONOBACK.png" alt="Pepe Society Logo">
-  <img id="main-logo" src="pshero.png" alt="Pepe Society Hero"> <!-- ✅ swapped here -->
-  
-  <!-- Pepe crowd -->
-  <img id="crowd" src="pepecrowd.png" alt="Pepe Crowd">
+  <img id="main-logo" src="pshero.png" alt="Pepe Society Hero">
 
   <!-- Extra scrollable section -->
   <div id="extra-space"></div>
@@ -122,15 +101,9 @@
   <script>
     const intro = document.getElementById('intro');
     const video = intro.querySelector('video');
-    const crowd = document.getElementById('crowd');
 
     video.addEventListener('ended', () => {
       intro.style.height = "0";
-
-      // wait 1 second, then slide up crowd faster
-      setTimeout(() => {
-        crowd.classList.add('active');
-      }, 1000);
     });
   </script>
 </body>
