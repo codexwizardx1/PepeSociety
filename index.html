@@ -87,7 +87,7 @@
       width: 100vw;  
       height: auto;
       opacity: 0;
-      transition: bottom 0.4s ease-out, opacity 0.4s ease-out; /* ✅ faster */
+      transition: bottom 0.4s ease-out, opacity 0.4s ease-out;
       z-index: 10;
     }
 
@@ -96,9 +96,9 @@
       opacity: 1;
     }
 
-    /* filler space for scrolling */
-    #filler {
-      height: 400vh; /* ✅ more scroll space */
+    /* Blank section for scroll space */
+    section.blank {
+      height: 150vh; /* extra room to scroll */
     }
   </style>
 </head>
@@ -117,8 +117,8 @@
   <!-- Pepe crowd -->
   <img id="crowd" src="pepecrowd.png" alt="Pepe Crowd">
 
-  <!-- Extra scrollable space -->
-  <div id="filler"></div>
+  <!-- Blank scrollable section -->
+  <section class="blank"></section>
 
   <script>
     const intro = document.getElementById('intro');
