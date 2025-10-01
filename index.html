@@ -72,23 +72,23 @@
       height: auto;
     }
 
-    /* Centered PepeSociety logo (smaller again) */
+    /* Center PepeSociety logo (big, filling width) */
     #main-logo {
       position: absolute;
-      top: 40%;
+      top: 35%; /* moved up slightly */
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 600px;  /* smaller again */
+      width: 90vw;  /* almost fills screen width */
       height: auto;
     }
 
-    /* Bottom-centered Pepe crowd (smaller + moved lower) */
+    /* Big bottom-centered Pepe crowd */
     #crowd {
       position: absolute;
-      bottom: -40px; /* 🔥 pushes it further down */
+      bottom: -80px; /* moved further down */
       left: 50%;
       transform: translateX(-50%);
-      width: 400px;  /* smaller scale */
+      width: 80vw;  /* back to big size */
       height: auto;
     }
   </style>
@@ -106,10 +106,10 @@
     <!-- Top-left logo -->
     <img id="corner-logo" src="PSLOGONOBACK.png" alt="Pepe Society Logo">
 
-    <!-- Centered PepeSociety logo -->
+    <!-- Big PepeSociety logo -->
     <img id="main-logo" src="PEPESOCIETY.png" alt="Pepe Society">
 
-    <!-- Bottom-centered Pepe crowd -->
+    <!-- Big bottom-centered Pepe crowd -->
     <img id="crowd" src="pepecrowd.png" alt="Pepe Crowd">
   </div>
 
