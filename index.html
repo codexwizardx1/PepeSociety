@@ -11,6 +11,7 @@
       height: 100%;
       overflow-x: hidden;
       font-family: Arial, sans-serif;
+      background: #3852cd;
     }
 
     /* Intro wrapper */
@@ -56,11 +57,6 @@
       filter: saturate(1.4) contrast(1.05);
     }
 
-    /* Background */
-    body {
-      background: #3852cd;
-    }
-
     /* Top-left logo */
     #corner-logo {
       position: absolute;
@@ -82,24 +78,26 @@
 
     /* Pepe crowd */
     #crowd {
-      position: absolute;
-      bottom: -800px; /* start hidden way lower */
+      position: fixed;    /* stays in place on scroll */
+      bottom: -800px;     /* start hidden */
       left: 50%;
       transform: translateX(-50%);
       width: 100vw;  
       height: auto;
       opacity: 0;
       transition: bottom 1s ease-out, opacity 1s ease-out;
+      z-index: 10;
     }
 
+    /* Active: slide into -400px and stay there */
     #crowd.active {
-      bottom: -400px; /* your original spot */
+      bottom: -400px;
       opacity: 1;
     }
 
-    /* filler space for scroll testing */
+    /* filler space just so you can scroll */
     #filler {
-      height: 200vh; /* lots of empty scroll space */
+      height: 200vh;
     }
   </style>
 </head>
@@ -111,12 +109,14 @@
     </video>
   </div>
 
-  <!-- Logos + crowd (keep positioned the same as before) -->
+  <!-- Logos -->
   <img id="corner-logo" src="PSLOGONOBACK.png" alt="Pepe Society Logo">
   <img id="main-logo" src="PEPESOCIETY.png" alt="Pepe Society">
+
+  <!-- Pepe crowd -->
   <img id="crowd" src="pepecrowd.png" alt="Pepe Crowd">
 
-  <!-- Extra scroll room -->
+  <!-- Extra scrollable space -->
   <div id="filler"></div>
 
   <script>
@@ -127,7 +127,7 @@
     video.addEventListener('ended', () => {
       intro.style.height = "0";
 
-      // wait 1 second, then slide up crowd to -400px
+      // wait 1 second, then slide up crowd to -400px and keep it there
       setTimeout(() => {
         crowd.classList.add('active');
       }, 1000);
