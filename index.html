@@ -65,7 +65,7 @@
       height: auto;
     }
 
-    /* PepeSociety main logo (nudged up a bit) */
+    /* PepeSociety main logo */
     #main-logo {
       position: absolute;
       top: 45%;   /* moved up from 50% */
@@ -76,13 +76,13 @@
       filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
     }
 
-    /* Pepe crowd */
+    /* Pepe crowd (smaller now) */
     #crowd {
       position: fixed;    
       bottom: -800px;     
       left: 50%;
       transform: translateX(-50%);
-      width: 100vw;  
+      width: 80vw;  /* was 100vw — now smaller */
       height: auto;
       opacity: 0;
       transition: bottom 0.4s ease-out, opacity 0.4s ease-out;
@@ -111,7 +111,7 @@
 
   <!-- Logos -->
   <img id="corner-logo" src="PSLOGONOBACK.png" alt="Pepe Society Logo">
-  <img id="main-logo" src="pepesociety3.png" alt="Pepe Society"> <!-- ✅ swapped here -->
+  <img id="main-logo" src="pepesociety3.png" alt="Pepe Society">
   
   <!-- Pepe crowd -->
   <img id="crowd" src="pepecrowd.png" alt="Pepe Crowd">
