@@ -11,8 +11,26 @@
       height: 100%;
       overflow: hidden;
       background: black;
+      font-family: sans-serif;
     }
-    video {
+
+    /* Fullscreen intro wrapper */
+    #intro {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      transition: transform 1s ease-in-out;
+    }
+
+    #intro video {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -20,32 +38,53 @@
       min-height: 100%;
       transform: translate(-50%, -50%) scale(0.97);
       object-fit: cover;
-      pointer-events: none; /* makes it unclickable */
+      pointer-events: none;
     }
-    /* Hide any browser-injected controls */
-    video::-webkit-media-controls {
-      display: none !important;
+
+    /* Hidden state after animation */
+    #intro.slide-up {
+      transform: translateY(-100%);
     }
-    video::-webkit-media-controls-enclosure {
-      display: none !important;
+
+    /* Main site content */
+    main {
+      position: relative;
+      z-index: 1;
+      height: 100vh;
+      background: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   </style>
 </head>
 <body>
-  <video id="intro" autoplay muted playsinline loop controlslist="nodownload nofullscreen noremoteplayback">
-    <source src="intro.mp4" type="video/mp4">
-  </video>
+  <!-- Intro video overlay -->
+  <div id="intro">
+    <video id="introVideo" autoplay muted playsinline>
+      <source src="intro.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- Your real site -->
+  <main>
+    <h1>Welcome to Pepe Society 🚀</h1>
+  </main>
 
   <script>
-    const video = document.getElementById("intro");
-    video.removeAttribute("controls"); // remove controls if browser adds them
+    const video = document.getElementById("introVideo");
+    const intro = document.getElementById("intro");
+
+    // Force muted autoplay (safari fix)
     video.muted = true;
-    video.play().catch(() => {
-      document.body.addEventListener("click", () => {
-        video.play();
-      }, { once: true });
+    video.play();
+
+    // When video ends → slide intro up
+    video.addEventListener("ended", () => {
+      intro.classList.add("slide-up");
+      // optional: remove intro div after animation for performance
+      setTimeout(() => intro.remove(), 1200);
     });
   </script>
 </body>
 </html>
-
