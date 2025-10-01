@@ -11,7 +11,7 @@
       height: 100%;
       overflow-x: hidden;
       font-family: Arial, sans-serif;
-      background: linear-gradient(180deg, #3d5be0 0%, #2d3ca8 100%); /* gradient */
+      background: linear-gradient(180deg, #3d5be0 0%, #2d3ca8 100%);
       background-attachment: fixed;
     }
 
@@ -75,7 +75,7 @@
       transform: translate(-50%, -50%);
       width: 90vw;  
       height: auto;
-      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4)); /* emboss/shadow feel */
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
     }
 
     /* Pepe crowd */
@@ -87,7 +87,7 @@
       width: 100vw;  
       height: auto;
       opacity: 0;
-      transition: bottom 1s ease-out, opacity 1s ease-out;
+      transition: bottom 0.4s ease-out, opacity 0.4s ease-out; /* ✅ faster */
       z-index: 10;
     }
 
@@ -96,9 +96,9 @@
       opacity: 1;
     }
 
-    /* filler space at bottom for scrolling */
+    /* filler space for scrolling */
     #filler {
-      height: 200vh; /* adds vertical scroll */
+      height: 400vh; /* ✅ more scroll space */
     }
   </style>
 </head>
@@ -128,7 +128,7 @@
     video.addEventListener('ended', () => {
       intro.style.height = "0";
 
-      // wait 1 second, then slide up crowd to -400px and keep it there
+      // wait 1 second, then slide up crowd faster
       setTimeout(() => {
         crowd.classList.add('active');
       }, 1000);
