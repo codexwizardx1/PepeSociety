@@ -58,7 +58,7 @@
 
     /* Main content */
     #content {
-      background: #3852cd; /* ✅ Pepe blue background */
+      background: #3852cd;
       height: 100vh;
       position: relative;
     }
@@ -72,25 +72,23 @@
       height: auto;
     }
 
-    /* Huge centered PepeSociety logo */
+    /* Centered PepeSociety logo (smaller again) */
     #main-logo {
       position: absolute;
-      top: 50%;
+      top: 40%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 90vw;   /* 🔥 almost fills screen */
+      width: 600px;  /* smaller again */
       height: auto;
-      max-width: 1600px; /* safety cap */
     }
 
-    /* Bottom-centered Pepe crowd */
+    /* Bottom-centered Pepe crowd (smaller + moved lower) */
     #crowd {
       position: absolute;
-      bottom: 0;
+      bottom: -40px; /* 🔥 pushes it further down */
       left: 50%;
       transform: translateX(-50%);
-      width: 50vw;   /* scaled down */
-      max-width: 800px;
+      width: 400px;  /* smaller scale */
       height: auto;
     }
   </style>
@@ -108,7 +106,7 @@
     <!-- Top-left logo -->
     <img id="corner-logo" src="PSLOGONOBACK.png" alt="Pepe Society Logo">
 
-    <!-- Huge centered PepeSociety logo -->
+    <!-- Centered PepeSociety logo -->
     <img id="main-logo" src="PEPESOCIETY.png" alt="Pepe Society">
 
     <!-- Bottom-centered Pepe crowd -->
@@ -120,7 +118,7 @@
     const video = intro.querySelector('video');
 
     video.addEventListener('ended', () => {
-      intro.style.height = "0"; // crop away intro
+      intro.style.height = "0";
     });
   </script>
 </body>
