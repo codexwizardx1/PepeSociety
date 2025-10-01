@@ -9,7 +9,7 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      overflow-x: hidden;
+      overflow: hidden;
       font-family: Arial, sans-serif;
     }
 
@@ -59,7 +59,7 @@
     /* Main content */
     #content {
       background: #3852cd;
-      height: 200vh; /* make taller so scrolling works */
+      height: 100vh;
       position: relative;
     }
 
@@ -82,22 +82,21 @@
       height: auto;
     }
 
-    /* Pepe crowd image */
+    /* Pepe crowd (same as your code, but hidden first) */
     #crowd {
-      position: fixed;  /* stays in place while scrolling */
-      bottom: -500px;   /* start hidden off-screen */
+      position: absolute;
+      bottom: -400px; /* your original setting */
       left: 50%;
       transform: translateX(-50%);
-      width: 100vw;
+      width: 100vw;  
       height: auto;
-      z-index: 50;
       opacity: 0;
       transition: bottom 1s ease-out, opacity 1s ease-out;
     }
 
-    /* Active state: slide up */
+    /* When active, slide crowd up */
     #crowd.active {
-      bottom: 0;    /* slide up into view */
+      bottom: 0;
       opacity: 1;
     }
   </style>
@@ -130,13 +129,14 @@
     video.addEventListener('ended', () => {
       intro.style.height = "0";
 
-      // wait 1s, then slide up crowd
+      // wait 1 second then slide up crowd
       setTimeout(() => {
         crowd.classList.add('active');
 
-        // after 5s, release it so it scrolls away
+        // optional: after 5s, "lock" it into place so it scrolls normally
         setTimeout(() => {
-          crowd.style.position = "absolute";
+          crowd.style.transition = "none"; 
+          crowd.style.position = "absolute"; 
           crowd.style.bottom = "0";
         }, 5000);
 
