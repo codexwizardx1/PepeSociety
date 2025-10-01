@@ -27,7 +27,7 @@
       justify-content: center;
       align-items: center;
       overflow: hidden;
-      transition: transform 1s ease-in-out;
+      transition: height 0.4s ease-in-out; /* FAST crop effect */
     }
 
     #intro video {
@@ -36,14 +36,14 @@
       left: 50%;
       min-width: 100%;
       min-height: 100%;
-      transform: translate(-50%, -50%) scale(0.97);
+      transform: translate(-50%, -50%) scale(0.85); /* smaller for Safari */
       object-fit: cover;
       pointer-events: none;
     }
 
-    /* Hidden state after animation */
-    #intro.slide-up {
-      transform: translateY(-100%);
+    /* Cropped away */
+    #intro.cropped {
+      height: 0;
     }
 
     /* Main site content */
@@ -75,15 +75,14 @@
     const video = document.getElementById("introVideo");
     const intro = document.getElementById("intro");
 
-    // Force muted autoplay (safari fix)
+    // Safari fix: force mute & autoplay
     video.muted = true;
     video.play();
 
-    // When video ends → slide intro up
+    // When video ends → crop intro away
     video.addEventListener("ended", () => {
-      intro.classList.add("slide-up");
-      // optional: remove intro div after animation for performance
-      setTimeout(() => intro.remove(), 1200);
+      intro.classList.add("cropped");
+      setTimeout(() => intro.remove(), 500); // remove after animation
     });
   </script>
 </body>
