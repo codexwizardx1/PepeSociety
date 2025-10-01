@@ -10,7 +10,7 @@
       padding: 0;
       height: 100%;
       overflow: hidden;
-      background: black; /* fallback background */
+      background: black;
     }
     video {
       position: absolute;
@@ -18,15 +18,34 @@
       left: 50%;
       min-width: 100%;
       min-height: 100%;
-      transform: translate(-50%, -50%) scale(0.97); /* adjust scale here */
+      transform: translate(-50%, -50%) scale(0.97);
       object-fit: cover;
-      pointer-events: none; /* disable clicks so no pause */
+      pointer-events: none; /* block clicks */
+    }
+    /* Hide default video controls & play overlay */
+    video::-webkit-media-controls {
+      display: none !important;
+    }
+    video::-webkit-media-controls-enclosure {
+      display: none !important;
     }
   </style>
 </head>
 <body>
-  <video autoplay muted playsinline loop>
+  <video id="intro" autoplay muted playsinline loop>
     <source src="intro.mp4" type="video/mp4">
   </video>
+
+  <script>
+    // Force mute + autoplay (Safari fix)
+    const video = document.getElementById("intro");
+    video.muted = true;
+    video.play().catch(() => {
+      // If autoplay fails, force play when page is interacted with
+      document.body.addEventListener("click", () => {
+        video.play();
+      }, { once: true });
+    });
+  </script>
 </body>
 </html>
