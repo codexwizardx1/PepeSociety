@@ -11,7 +11,7 @@
       height: 100%;
       overflow-x: hidden;
       font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #3852cd 50%, #26c050 100%); /* ✅ gradient background */
+      background: linear-gradient(to bottom, #3852cd 50%, #26c050 100%);
     }
 
     /* Intro wrapper */
@@ -56,16 +56,22 @@
       filter: saturate(1.4) contrast(1.05);
     }
 
-    /* Top-left logo */
+    /* Top-left logo (spinning one) */
     #corner-logo {
       position: absolute;
       top: 20px;
       left: 20px;
       width: 120px;
       height: auto;
+      animation: spin 10s linear infinite; /* ✅ spinning logo */
     }
 
-    /* Hero logo */
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    /* Hero logo (static) */
     #main-logo {
       position: absolute;
       top: 45%;
