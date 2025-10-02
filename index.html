@@ -11,7 +11,7 @@
       height: 100%;
       overflow-x: hidden;
       font-family: Arial, sans-serif;
-      background: #3852cd; /* ✅ solid blue background */
+      background: linear-gradient(to bottom, #3852cd 50%, #26c050 100%); /* ✅ gradient background */
     }
 
     /* Intro wrapper */
@@ -46,10 +46,10 @@
 
     video {
       position: absolute;
-      top: 45%;   /* ✅ same as hero */
+      top: 45%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 90vw;  /* ✅ same as hero */
+      width: 90vw;
       height: auto;
       object-fit: contain;
       pointer-events: none;
@@ -68,10 +68,10 @@
     /* Hero logo */
     #main-logo {
       position: absolute;
-      top: 45%;   /* ✅ same as video */
+      top: 45%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 90vw;  /* ✅ same as video */
+      width: 90vw;
       height: auto;
       filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
     }
@@ -79,7 +79,7 @@
     /* Extra section for scroll */
     #extra-space {
       height: 150vh;
-      background: #3852cd;
+      background: linear-gradient(to bottom, #3852cd 0%, #26c050 100%);
     }
   </style>
 </head>
