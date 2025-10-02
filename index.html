@@ -111,47 +111,6 @@
       z-index: 9;
     }
 
-    /* Lily pad nav container */
-    #lilypad-nav {
-      position: absolute;
-      top: 20px;
-      right: 20px; /* moved closer to right edge */
-      display: flex;
-      gap: 25px;
-      z-index: 20;
-    }
-
-    .lilypad-btn {
-      position: relative;
-      width: 130px;
-      height: 130px;
-      cursor: pointer;
-    }
-
-    .lilypad-btn img {
-      width: 100%;
-      height: auto;
-      transition: transform 0.2s ease;
-    }
-
-    .lilypad-btn:hover img {
-      transform: scale(1.1);
-    }
-
-    .lilypad-btn span {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #fc39d9; /* pink */
-      font-family: 'Atop', Arial, sans-serif;
-      font-weight: normal;
-      font-size: 20px;
-      -webkit-text-stroke: 1px black;
-      text-shadow: 0 2px 3px rgba(0,0,0,0.6);
-      pointer-events: none;
-    }
-
     /* Extra section for scroll */
     #extra-space {
       height: 150vh;
@@ -173,22 +132,6 @@
   <!-- Logos -->
   <img id="corner-logo" src="PSLOGONOBACK.png" alt="Pepe Society Logo">
   <img id="main-logo" src="pshero.png" alt="Pepe Society Hero">
-
-  <!-- Lily Pad Navigation -->
-  <div id="lilypad-nav">
-    <div class="lilypad-btn">
-      <img src="lilypad.png" alt="Home">
-      <span>Home</span>
-    </div>
-    <div class="lilypad-btn">
-      <img src="lilypad.png" alt="About">
-      <span>About</span>
-    </div>
-    <div class="lilypad-btn">
-      <img src="lilypad.png" alt="Contact">
-      <span>Contact</span>
-    </div>
-  </div>
 
   <!-- Extra scrollable section -->
   <div id="extra-space"></div>
