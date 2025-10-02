@@ -156,9 +156,8 @@
       z-index: 19;
       display: flex;
       flex-direction: column;
-      justify-content: space-between; /* space out content */
+      justify-content: space-between;
       transition: top 0.5s ease-in-out;
-      padding: 40px 0;
     }
 
     #dropdown.active {
@@ -170,25 +169,29 @@
       display: flex;
       justify-content: center;
       gap: 20px;
-      margin-bottom: 40px;
+      padding: 40px 0 20px 0;
     }
 
     .socials a {
       width: 50px;
       height: 50px;
-      background: #fc39d9;
+      background: white;
       border: 2px solid black;
       border-radius: 10px;
       display: flex;
       justify-content: center;
       align-items: center;
-      text-decoration: none;
       color: black;
-      font-size: 22px;
-      font-weight: bold;
+      font-size: 24px;
+      text-decoration: none;
       opacity: 0;
       transform: scale(0.5);
       animation: bounceIn 0.6s forwards;
+    }
+
+    .socials a:hover {
+      background: #fc39d9;
+      color: white;
     }
 
     /* Bounce animation */
@@ -209,12 +212,15 @@
 
     #dropdown ul li {
       font-family: Impact, Arial Black, sans-serif;
-      font-size: 80px; /* even bigger */
+      font-size: 80px;
       font-weight: bold;
       color: white;
       text-align: left;
       padding: 30px 50px;
       border-bottom: 5px solid #fc39d9;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       transition: color 0.3s ease;
     }
 
@@ -225,10 +231,16 @@
     #dropdown ul li a {
       color: inherit;
       text-decoration: none;
+      flex: 1;
+    }
+
+    #dropdown ul li .arrow {
+      font-size: 40px;
+      color: #fc39d9;
     }
 
     #dropdown ul li:hover {
-      color: #3852cd; /* hero blue on hover */
+      color: #3852cd;
     }
 
     /* Extra section for scroll */
@@ -264,18 +276,18 @@
   <div id="dropdown">
     <!-- Social icons row -->
     <div class="socials">
-      <a href="#">IG</a>
-      <a href="#">X</a>
-      <a href="#">TG</a>
-      <a href="#">TT</a>
+      <a href="#" title="Telegram">📨</a>
+      <a href="#" title="Twitter / X">𝕏</a>
+      <a href="#" title="Instagram">📸</a>
+      <a href="#" title="TikTok">🎵</a>
     </div>
 
     <!-- Nav items -->
     <ul>
-      <li><a href="#">HOME ↘</a></li>
-      <li><a href="#">ABOUT ↘</a></li>
-      <li><a href="#">ROADMAP ↘</a></li>
-      <li><a href="#">COMMUNITY ↘</a></li>
+      <li><a href="#">HOME</a> <span class="arrow">➔</span></li>
+      <li><a href="#">ABOUT</a> <span class="arrow">➔</span></li>
+      <li><a href="#">ROADMAP</a> <span class="arrow">➔</span></li>
+      <li><a href="#">COMMUNITY</a> <span class="arrow">➔</span></li>
     </ul>
   </div>
 
