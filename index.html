@@ -44,18 +44,17 @@
       mix-blend-mode: overlay;
     }
 
-   video {
-  position: absolute;
-  top: 46.5%;   /* already nudged up slightly */
-  left: 50.5%;  /* ✅ nudged left slightly */
-  min-width: 100%;
-  min-height: 100%;
-  transform: translate(-50%, -50%) scale(0.8);
-  object-fit: cover;
-  pointer-events: none;
-  filter: saturate(1.4) contrast(1.05);
-}
-
+    video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 1920px;   /* ✅ natural video size */
+      height: 1200px;  /* ✅ natural video size */
+      transform: translate(-50%, -50%); /* perfectly centered */
+      object-fit: contain; /* no cropping */
+      pointer-events: none;
+      filter: saturate(1.4) contrast(1.05);
+    }
 
     /* Top-left logo */
     #corner-logo {
@@ -66,14 +65,14 @@
       height: auto;
     }
 
-    /* Hero logo */
+    /* Hero logo (same size & alignment as video) */
     #main-logo {
       position: absolute;
-      top: 45%;
+      top: 50%;
       left: 50%;
+      width: 1920px;   /* ✅ natural logo size */
+      height: 1200px;  /* ✅ natural logo size */
       transform: translate(-50%, -50%);
-      width: 90vw;  
-      height: auto;
       filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
     }
 
