@@ -32,7 +32,7 @@
 
     video {
       position: absolute;
-      top: 45%;
+      top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       width: 90vw;
@@ -42,7 +42,7 @@
       filter: saturate(1.4) contrast(1.05);
     }
 
-    /* Rain container */
+    /* Rain */
     .rain {
       position: absolute;
       top: 0;
@@ -76,7 +76,7 @@
       }
     }
 
-    /* Top-left logo (spinning) */
+    /* Top-left spinning logo */
     #corner-logo {
       position: absolute;
       top: 20px;
@@ -95,7 +95,7 @@
     /* Hero logo */
     #main-logo {
       position: absolute;
-      top: 45%;
+      top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       width: 90vw;
@@ -104,44 +104,28 @@
       z-index: 9;
     }
 
-    /* Menu button (top right) */
-    #menu-button {
+    /* Dropdown button */
+    #menu-btn {
       position: absolute;
       top: 20px;
       right: 20px;
-      z-index: 20;
-      width: 50px;
-      height: 50px;
-      border-radius: 10px;
-      background: #fc39d9;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background: #00ff00;
+      border-radius: 50%;
+      border: none;
       cursor: pointer;
-      border: 2px solid black;
-      transition: all 0.3s ease;
+      z-index: 20;
+      font-size: 30px;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background 0.3s;
     }
 
-    #menu-button span {
-      display: block;
-      width: 25px;
-      height: 3px;
-      margin: 3px 0;
-      background: black;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-
-    /* Animate into an X */
-    #menu-button.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-    #menu-button.active span:nth-child(2) {
-      opacity: 0;
-    }
-    #menu-button.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(6px, -6px);
+    #menu-btn:hover {
+      background: #00cc00;
     }
 
     /* Fullscreen dropdown menu */
@@ -167,18 +151,30 @@
     #dropdown ul {
       list-style: none;
       padding: 0;
+      margin: 0;
+      width: 80%;
       text-align: center;
     }
 
     #dropdown ul li {
-      margin: 20px 0;
+      font-size: 3rem;
+      font-weight: bold;
+      padding: 30px 0;
+      border-bottom: 4px solid #fc39d9; /* pink divider */
+    }
+
+    #dropdown ul li:last-child {
+      border-bottom: none;
     }
 
     #dropdown ul li a {
       color: white;
       text-decoration: none;
-      font-size: 32px;
-      font-weight: bold;
+      transition: color 0.2s ease;
+    }
+
+    #dropdown ul li a:hover {
+      color: #fc39d9;
     }
 
     /* Extra section for scroll */
@@ -196,27 +192,23 @@
     </video>
   </div>
 
-  <!-- Rain overlay -->
+  <!-- Rain -->
   <div class="rain"></div>
 
   <!-- Logos -->
   <img id="corner-logo" src="PSLOGONOBACK.png" alt="Pepe Society Logo">
   <img id="main-logo" src="pshero.png" alt="Pepe Society Hero">
 
-  <!-- Menu Button -->
-  <div id="menu-button">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
+  <!-- Dropdown Menu Button -->
+  <button id="menu-btn">☰</button>
 
-  <!-- Fullscreen Dropdown Menu -->
+  <!-- Dropdown Menu -->
   <div id="dropdown">
     <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Roadmap</a></li>
-      <li><a href="#">Community</a></li>
+      <li><a href="#">MEDIA</a></li>
+      <li><a href="#">PEPE TALES</a></li>
+      <li><a href="#">COMMUNITY</a></li>
+      <li><a href="#">CREATIVE</a></li>
     </ul>
   </div>
 
@@ -227,23 +219,21 @@
     const intro = document.getElementById('intro');
     const video = intro.querySelector('video');
     const rainContainer = document.querySelector('.rain');
-    const menuButton = document.getElementById('menu-button');
+    const menuBtn = document.getElementById('menu-btn');
     const dropdown = document.getElementById('dropdown');
 
     // Generate raindrops
-    const droplets = 200;
+    const droplets = 250;
     for (let i = 0; i < droplets; i++) {
       const drop = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       drop.setAttribute("class", "rain__drop");
       drop.setAttribute("viewBox", "0 0 5 50");
-
-      drop.style.setProperty("--o", Math.random());
-      drop.style.setProperty("--s", Math.random());
-
       drop.style.left = `${Math.floor(Math.random() * 100)}%`;
       drop.style.top = `${(Math.floor(Math.random() * 100) + 50) * -1}px`;
       drop.style.animationDelay = `${Math.random() * 2 - 1}s`;
       drop.style.animationDuration = `${(Math.random() + 0.5) * 2}s`;
+      drop.style.setProperty("--o", Math.random());
+      drop.style.setProperty("--s", Math.random());
 
       const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
       path.setAttribute("d", "M 2.5,0 C 2.6949458,3.5392017 3.344765,20.524571 4.4494577,30.9559 5.7551357,42.666753 4.5915685,50 2.5,50 0.40843152,50 -0.75513565,42.666753 0.55054234,30.9559 1.655235,20.524571 2.3050542,3.5392017 2.5,0 Z");
@@ -259,10 +249,10 @@
       rainContainer.style.display = "block";
     });
 
-    // Toggle dropdown menu & animate button
-    menuButton.addEventListener('click', () => {
+    // Dropdown toggle
+    menuBtn.addEventListener('click', () => {
       dropdown.classList.toggle('active');
-      menuButton.classList.toggle('active');
+      menuBtn.textContent = dropdown.classList.contains('active') ? "✕" : "☰";
     });
   </script>
 </body>
